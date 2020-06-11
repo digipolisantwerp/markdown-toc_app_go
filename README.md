@@ -8,6 +8,9 @@ This Markdown TOC generator will create a Table Of Content for Github from MarkD
 
 * place executable somewhere in a folder belonging to your execution path
 * use `--help` to view options
+* provide the following tags (the TOC will be generated in between)
+    * &lt;!-- dgp-toc-start --&gt;
+    * &lt;!-- dgp-toc-end --&gt;
 
 ### Build from source ###
 
