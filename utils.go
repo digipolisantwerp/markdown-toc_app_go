@@ -52,3 +52,12 @@ func writeString2File(content string, file string) {
 func anchorize(link string) string {
 	return "#" + strings.ToLower(strings.ReplaceAll(url.QueryEscape(noPunctuationReg.ReplaceAllString(link,"")),"+","-"))
 }
+
+func stringInSlice(val string, list []string) bool {
+    for _, b := range list {
+        if strings.EqualFold(b,val) {
+            return true
+		}
+    }
+    return false
+}

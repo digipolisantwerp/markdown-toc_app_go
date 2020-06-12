@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	version   = "1.0.0"
+	version = "1.0.0"
 )
 
 var (
@@ -18,6 +18,13 @@ var (
 	depth       = kingpin.Flag("depth", "How many levels of headings to include. Defaults to 0 (all)").Default("0").Int()
 	indent      = kingpin.Flag("indent", "Indent space of generated list").Default("2").Int()
 )
+
+var reservedFiles = []string{
+		"changelog.md",
+		"contributing.md",
+		"license.md",
+		"readme.md"}
+
 
 // Entry point
 func main() {
@@ -31,7 +38,9 @@ func main() {
 		if strings.EqualFold(filepath.Ext(path),".md") {
 			// if md file is not our toc file
 			if !strings.EqualFold(path,*tocFile) {
-				paths = append(paths, path)
+				if !stringInSlice(path,reservedFiles) {
+					paths = append(paths, path)
+				}
 			}
 		}
         return nil
